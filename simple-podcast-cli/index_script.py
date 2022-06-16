@@ -11,6 +11,7 @@ def convert_podcast(videos: list) -> dict:
         }
     
     result = dict()
+
     for video in videos:
         video_id_json = json.dumps({'id': video})
         with open("episode.json", "w") as file:
@@ -19,11 +20,14 @@ def convert_podcast(videos: list) -> dict:
             p = subprocess.run(['/usr/bin/node', 'index.js'], check=True, env=podcast_env)
             
             print(video + ' Completed')
-            result[video] = 'Success'
+            result[video] = 'succeeded'
         except subprocess.CalledProcessError:
             print(video + ' Failed')
             result[video] = 'Failed'
-     
+
+    # Clean up downloaded files
+    for file in 'episode.json', 'episode.mp3', 'thumbnail.jpg':
+        if os.path.isfile(file):
+            os.remove(file) 
+
     return result
-    #for video in videos:
-    #    print(f'{video:11}: {result[video]}')
