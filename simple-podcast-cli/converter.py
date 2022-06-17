@@ -30,7 +30,7 @@ def convert_podcast(videos: list) -> dict:
             result[video] = "Failed"
 
     # Clean up downloaded files
-    for file in "episode.json", "episode.mp3", "thumbnail.jpg":
+    for file in "episode.json", "episode.mp3", "thumbnail.jpg", "package.json", "package-lock.json":
         if os.path.isfile(file):
             os.remove(file)
 
