@@ -1,6 +1,6 @@
 import sys
 import click
-from index_script import convert_podcast
+from converter import convert_podcast
 from my_scrapetube import return_channel, return_playlist
 
 @click.group()
@@ -11,7 +11,7 @@ def cli():
 @cli.command()
 @click.argument('ids', nargs=-1)
 def youtube_id(ids):
-    """Takes in YouTube IDs as arguments"""
+    """Takes in YouTube ID(s) as arguments"""
     click.echo(f'Converting Youtube Video to Anchor FM')
     ids = list(ids)
     click.echo(ids)
