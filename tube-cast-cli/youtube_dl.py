@@ -39,8 +39,7 @@ def download_youtube_video(youtube_id: str) -> dict:
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download(URL)
             info = ydl.extract_info(URL)
-            info = json.dumps(ydl.sanitize_info(info))
-        return {'title': info['title'], 'description': info['description']}
+        return {'title': info['title'], 'description': info['description'], 'file_name': 'episode.webm'}
     except Exception as e: 
         if isinstance(e, DownloadError):
             pass
