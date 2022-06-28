@@ -1,6 +1,7 @@
 import sys
 import os
 import click
+import getpass
 from my_scrapetube import return_channel, return_playlist
 from youtube_to_anchorFM import convert_youtube_to_podcast
 
@@ -9,7 +10,7 @@ def cli():
     """Convert YouTube video(s) to Anchor FM"""
     if not os.getenv("ANCHOR_EMAIL") or not os.getenv("ANCHOR_PASSWORD"):
         os.environ["ANCHOR_EMAIL"] = input("Enter anchor.FM user email: ")
-        os.environ["ANCHOR_PASSWORD"] = input("Enter anchor.FM password: ")
+        os.environ["ANCHOR_PASSWORD"] = getpass.getpass("Enter anchor.FM password: ")
     pass
 
 @cli.command()
