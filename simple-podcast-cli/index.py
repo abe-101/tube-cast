@@ -1,29 +1,33 @@
 import asyncio
 import os
 from pyppeteer import launch
+from youtube_dl import download_youtube_thumbnail, download_youtube_video
 
-def convert_youtube_to_podcast(youtube_id: str) -> bool:
+def convert_youtube_to_podcast(youtube_id: str, draft_mode=True, thumbnail_mode=True, url_in_description=True, is_explicit=False) -> bool:
     """
     Given a YouTube video ID it will create a Podcast on Anchor.fm
     """
     email = os.getenv('ANCHOR_EMAIL')
     password = os.getenv('ANCHOR_PASSWORD')
-    thumbnailMode = os.getenv('LOAD_THUMBNAIL', 'false')
-    urlDescription = os.getenv('URL_IN_DESCRIPTION', 'false')
     
     UPLOAD_TIMEOUT=60 * 5 * 1000
+   
+    # Thumbnail Mode
+    if thumbnail_mode is True:
+        thumbnail_image_file_name = download_youtube_thumbnail(youtube_id)
 
-    url = 'https://www.youtube.com/watch?v=' + youtube_id
+    # Download YouTube video and retreive metadata
+    episode_info = download_youtube_video(youtube_id)
 
-    episode = {'title': 'testing title', 'description': 'testing description'}
+    # Append URL to description
+    if url_in_description is True:
+        episode_info["description"] = episode_info["description"] + '\nhttps://www.youtube.com/watch?v=' + youtube_id
     
     # Draft mode
-    draftMode = os.getenv('LOAD_THUMBNAIL', 'false')
-    saveDraftOrPublishButtonXPath = '//button[text()="Save as draft"]' if draftMode == 'true' else '//button/div[text()="Publish now"]'
+    saveDraftOrPublishButtonXPath = '//button[text()="Save as draft"]' if draft_mode is True else '//button/div[text()="Publish now"]'
     
     # Is Explicit
-    isExplicit = os.getenv('IS_EXPLICIT', 'false')
-    selectorForExplicitContentLabel = 'label[for="podcastEpisodeIsExplicit-true"]' if isExplicit == 'true' else 'label[for="podcastEpisodeIsExplicit-false"]'
+    selectorForExplicitContentLabel = 'label[for="podcastEpisodeIsExplicit-true"]' if is_explicit is True else 'label[for="podcastEpisodeIsExplicit-false"]'
     
     
     
@@ -51,8 +55,7 @@ def convert_youtube_to_podcast(youtube_id: str) -> bool:
         await page.waitForSelector('input[type=file]')
         print("Uploading audio file")
         inputFile = await page.J('input[type=file]')
-        await inputFile.uploadFile('/home/thinkpad/repos/youtube-to-anchorfm/episode.mp3')
-        #await inputFile.uploadFile(outputFile)
+        await inputFile.uploadFile(episode_info["file_name"])
     
         print("Waiting for upload to finish")
         await page.waitFor(25 * 1000)
@@ -64,24 +67,23 @@ def convert_youtube_to_podcast(youtube_id: str) -> bool:
     
         print("-- Adding title")
         await page.waitForSelector('#title', visible=True)
-        # Wait some time so any field refresh doesn't mess up with our input
         await page.waitFor(2000)
-        await page.type('#title', episode['title'])
+        await page.type('#title', episode_info['title'])
     
         print("-- Adding description")
         await page.waitForSelector('div[role="textbox"]', visible=True )
-        await page.type('div[role="textbox"]', episode['description'])
+        await page.type('div[role="textbox"]', episode_info['description'])
     
         print("-- Selecting content type")
         await page.waitForSelector(selectorForExplicitContentLabel, visible=True)
         contentTypeLabel = await page.J(selectorForExplicitContentLabel)
         await contentTypeLabel.click()
     
-        if (thumbnailMode != 'false'):
+        if thumbnail_mode:
             print("-- Uploading episode art")
             await page.waitForSelector('input[type=file][accept="image/*"]')
             inputEpisodeArt = await page.J('input[type=file][accept="image/*"]')
-            await inputEpisodeArt.uploadFile('/home/thinkpad/repos/youtube-to-anchorfm/thumbnail.jpg')
+            await inputEpisodeArt.uploadFile(thumbnail_image_file_name)
     
             print("-- Saving uploaded episode art")
             await page.waitForXPath('//button/div[text()="Save"]')
@@ -91,20 +93,23 @@ def convert_youtube_to_podcast(youtube_id: str) -> bool:
       
     
         print("-- Publishing")
-        #await page.click(saveDraftOrPublishButtonXPath)
         button = await page.Jx(saveDraftOrPublishButtonXPath)
         if button:
             await button[0].click()
         else:
             await page.click('.styles__button___2oNPe.styles__purple___2u-0h.css-39f635')
-        
     
         await navigationPromise
         await browser.close()
     
-    #asyncio.get_event_loop().run_until_complete(main())
     asyncio.run(Lauch())
-convert_youtube_to_podcast('sds') 
 
-THUMBNAIL_FORMAT = "jpg"
-outputFile = 'episode.mp3'
+    # Remove downloaded Thumbnail image file
+    if url_in_description is True
+        if os.path.isfile(thumbnail_image_file_name):
+            os.remove(thumbnail_image_file_name)
+
+    # Remove downloaded downloaded audio file
+    if os.path.isfile(episode_info["file_name"]):
+        os.remove(episode_info["file_name"])
+
