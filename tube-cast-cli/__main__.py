@@ -2,6 +2,7 @@ import sys
 import os
 import click
 import getpass
+from validate_id import valid_id
 from my_scrapetube import return_channel, return_playlist
 from youtube_to_anchorFM import convert_youtube_to_podcast
 
@@ -21,7 +22,10 @@ def youtube_id(ids):
     ids = list(ids)
     click.echo(ids)
     for id in ids:
-        convert_youtube_to_podcast(id)
+        if valid_id(id):
+            convert_youtube_to_podcast(id)
+        else:
+            print("Id: " + id + " is Invalid - Skipping")
 
 @cli.command()
 @click.argument('filename', type=click.Path(exists=True))
