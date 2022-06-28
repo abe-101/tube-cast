@@ -2,8 +2,8 @@ import sys
 import os
 import click
 from dotenv import load_dotenv
-from converter import convert_podcast
 from my_scrapetube import return_channel, return_playlist
+from youtube_to_anchorFM import convert_youtube_to_podcast
 
 @click.group()
 def cli():
@@ -20,7 +20,8 @@ def youtube_id(ids):
     click.echo(f'Converting Youtube Video to Anchor FM')
     ids = list(ids)
     click.echo(ids)
-    convert_podcast(ids)
+    for id in ids:
+        convert_youtube_to_podcast(id)
 
 @cli.command()
 @click.argument('filename', type=click.Path(exists=True))
