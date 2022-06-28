@@ -2,7 +2,7 @@ import json
 from yt_dlp import YoutubeDL
 from yt_dlp.utils import DownloadError
 
-def download_youtube_thumbnail(youtube_id: str) -> str:
+def download_youtube_thumbnail(youtube_id: str) -> bool:
     URL = 'https://www.youtube.com/watch?v=' + youtube_id
     ydl_opts = {
             "outtmpl": "episode.%(ext)s",
@@ -13,6 +13,7 @@ def download_youtube_thumbnail(youtube_id: str) -> str:
     try:
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download(URL)
+            return 'episode.webp'
     except Exception as e: 
         if isinstance(e, DownloadError):
             pass
@@ -23,7 +24,7 @@ def download_youtube_thumbnail(youtube_id: str) -> str:
                 raise(e)
         else:
             raise(e)   
-    return "episode.webp"
+    return False
 
 def download_youtube_video(youtube_id: str) -> dict:
     URL = 'https://www.youtube.com/watch?v=' + youtube_id
@@ -31,13 +32,14 @@ def download_youtube_video(youtube_id: str) -> dict:
             #"outtmpl": "episode.mp3",
             "outtmpl": "episode.%(ext)s",
             "format": "bestaudio",
-            "force-overwrites": True,
-            "audio-format": 'mp3',
+            "force_overwrites": True,
+            "audio_format": 'mp3',
                 }
     try:
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download(URL)
             info = ydl.extract_info(URL)
+        return {'title': info['title'], 'description': info['description']}
     except Exception as e: 
         if isinstance(e, DownloadError):
             pass
@@ -48,8 +50,7 @@ def download_youtube_video(youtube_id: str) -> dict:
                 raise(e)
         else:
             raise(e)   
-    return {'title': info['title'], 'description': info['description']}
-
+    return False
 '''
 youtube_id = 'RPuhshpOv0o'
 URL = 'https://www.youtube.com/watch?v=' + youtube_id
