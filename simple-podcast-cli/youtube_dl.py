@@ -39,6 +39,7 @@ def download_youtube_video(youtube_id: str) -> dict:
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download(URL)
             info = ydl.extract_info(URL)
+            info = json.dumps(ydl.sanitize_info(info))
         return {'title': info['title'], 'description': info['description']}
     except Exception as e: 
         if isinstance(e, DownloadError):
@@ -51,23 +52,3 @@ def download_youtube_video(youtube_id: str) -> dict:
         else:
             raise(e)   
     return False
-'''
-youtube_id = 'RPuhshpOv0o'
-URL = 'https://www.youtube.com/watch?v=' + youtube_id
-THUMBNAIL_FORMAT = "jpg"
-
-# ℹ️ See help(yt_dlp.YoutubeDL) for a list of available options and public functions
-ydl_opts = {
-        #"outtmpl": "episode.mp3",
-        "outtmpl": "episode.%(ext)s",
-        "format": "bestaudio",
-        "force-overwrites": True,
-        "audio-format": 'mp3',
-            }
-with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-    #info = ydl.extract_info(URL)
-    ydl.download(URL)
-
-    # ℹ️ ydl.sanitize_info makes the info json-serializable
-   # print(json.dumps(ydl.sanitize_info(info)))
-'''
