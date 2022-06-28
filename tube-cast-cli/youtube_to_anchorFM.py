@@ -105,7 +105,7 @@ def convert_youtube_to_podcast(youtube_id: str, draft_mode=True, thumbnail_mode=
     asyncio.run(Lauch())
 
     # Remove downloaded Thumbnail image file
-    if url_in_description is True
+    if url_in_description is True:
         if os.path.isfile(thumbnail_image_file_name):
             os.remove(thumbnail_image_file_name)
 
