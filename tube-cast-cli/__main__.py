@@ -1,16 +1,15 @@
 import sys
 import os
 import click
-from dotenv import load_dotenv
 from my_scrapetube import return_channel, return_playlist
 from youtube_to_anchorFM import convert_youtube_to_podcast
 
 @click.group()
 def cli():
     """Convert YouTube video(s) to Anchor FM"""
-    load_dotenv('load_env.env')
     if not os.getenv("ANCHOR_EMAIL") or not os.getenv("ANCHOR_PASSWORD"):
-        exit("Missing ENV variables")
+        os.environ["ANCHOR_EMAIL"] = input("Enter anchor.FM user email: ")
+        os.environ["ANCHOR_PASSWORD"] = input("Enter anchor.FM password: ")
     pass
 
 @cli.command()
