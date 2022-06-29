@@ -1,0 +1,15 @@
+https://pyppeteer.github.io/pyppeteer/reference.html#page-class | API Reference — Pyppeteer 0.0.25 documentation
+https://miyakogi.github.io/pyppeteer/_modules/pyppeteer/page.html#Page.xpath | pyppeteer.page — Pyppeteer 0.0.25 documentation
+https://miyakogi.github.io/pyppeteer/reference.html#pyppeteer.page.Page.xpath | API Reference — Pyppeteer 0.0.25 documentation
+https://www.tutorialspoint.com/puppeteer/puppeteer_xpath_functions.htm | Puppeteer - Xpath Functions
+https://pypi.org/project/yt-dlp/#release-files | yt-dlp · PyPI
+https://www.reddit.com/r/youtubedl/comments/skgjon/is_there_a_better_guide_to_using_ytdlp_with_python/iaawy0n/ | Is there a better guide to using yt-dlp with Python? : youtubedl
+https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/YoutubeDL.py#L191 | yt-dlp/YoutubeDL.py at master · yt-dlp/yt-dlp
+https://github.com/yt-dlp/yt-dlp#extracting-information | yt-dlp/yt-dlp: A youtube-dl fork with additional features and fixes
+https://github.com/yt-dlp/yt-dlp/blob/master/yt_dlp/YoutubeDL.py#L180 | yt-dlp/YoutubeDL.py at master · yt-dlp/yt-dlp
+https://github.com/ytdl-org/youtube-dl/issues/5192 | Choosing output file name in Python API · Issue #5192 · ytdl-org/youtube-dl
+
+https://www.learnpython.org/en/Modules_and_Packages | Modules and Packages - Learn Python - Free Interactive Python Tutorial
+https://docs.python.org/3/library/intro.html | Introduction — Python 3.10.4 documentation
+https://docs.python.org/3/library/functions.html#built-in-funcs | Built-in Functions — Python 3.10.4 documentation
+
