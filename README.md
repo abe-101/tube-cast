@@ -1,6 +1,9 @@
 # Tube-Cast
 Streamline the conversion of your YouTube videos to Anchor FM (podcast)
 
+tube-cast is a command-line tool that is capable of converting a youtube video into a podcast
+
+
 ## Instalation
 ```
 pip install tube-cast
