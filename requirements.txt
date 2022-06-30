@@ -1,5 +1,4 @@
 scrapetube
 click
-python-dotenv
 yt_dl
 
