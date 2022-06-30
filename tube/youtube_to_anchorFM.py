@@ -1,5 +1,7 @@
 import asyncio
 import os
+
+from validate_id import valid_id
 from pyppeteer import launch
 from youtube_dl import download_youtube_thumbnail, download_youtube_video
 
@@ -19,14 +21,17 @@ def convert_youtube_to_podcast(youtube_ids: list, *, draft_mode=True, thumbnail_
         if ans != "YES":
             exit()
     for id in youtube_ids:
-        print(id)
+        if not valid_id(id):
+            print(f'Video ID: {id} is not valid -- Skipping')
+            results.append((id,"skipped"))
+            continue
         if _convert_youtube_to_podcast(id, **parameters):
-            results.append((id,"successed"))
+            results.append((id,"a success"))
         else:
-            results.append((id,"Failed"))
+            results.append((id,"a failure"))
     print("\n\n================ Results ================\n")
     for result in results:
-        print(f'Video ID: {result[0]} has {result[1]}')
+        print(f'Video ID: {result[0]:11} was {result[1]}')
 
 
 def _convert_youtube_to_podcast(youtube_id: str, *, draft_mode=True, thumbnail_mode=True, url_in_description=True, is_explicit=False) -> bool:
