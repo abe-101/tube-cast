@@ -3,7 +3,33 @@ import os
 from pyppeteer import launch
 from youtube_dl import download_youtube_thumbnail, download_youtube_video
 
-def convert_youtube_to_podcast(youtube_id: str, draft_mode=True, thumbnail_mode=True, url_in_description=True, is_explicit=False) -> bool:
+def convert_youtube_to_podcast(youtube_ids: list, *, draft_mode=True, thumbnail_mode=True, url_in_description=True, is_explicit=False) -> dict:
+    parameters ={
+            'draft_mode': draft_mode,
+            'thumbnail_mode': thumbnail_mode,
+            'url_in_description': url_in_description,
+            'is_explicit': is_explicit,
+            }
+
+    results = []
+    if len(youtube_ids) > 9:
+        print("You are attempting to process more than 10 videos")
+        print("This may take a long time")
+        ans = input("Would you like to proceed? (YES/NO)\n")
+        if ans != "YES":
+            exit()
+    for id in youtube_ids:
+        print(id)
+        if _convert_youtube_to_podcast(id, **parameters):
+            results.append((id,"successed"))
+        else:
+            results.append((id,"Failed"))
+    print("\n\n================ Results ================\n")
+    for result in results:
+        print(f'Video ID: {result[0]} has {result[1]}')
+
+
+def _convert_youtube_to_podcast(youtube_id: str, *, draft_mode=True, thumbnail_mode=True, url_in_description=True, is_explicit=False) -> bool:
     """
     Given a YouTube video ID it will create a Podcast on Anchor.fm
     """
@@ -112,4 +138,5 @@ def convert_youtube_to_podcast(youtube_id: str, draft_mode=True, thumbnail_mode=
     # Remove downloaded downloaded audio file
     if os.path.isfile(episode_info["file_name"]):
         os.remove(episode_info["file_name"])
+    return True
 
