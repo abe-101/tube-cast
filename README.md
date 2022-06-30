@@ -1,27 +1,40 @@
-# Simple-Podcast
+# Tube-Cast
 Streamline the conversion of your YouTube videos to Anchor FM (podcast)
 
-## Environment Variables
-There are two basic ways to set an environment variable from a bash or zsh terminal session. One is using the export keyword:
-```bash
-export ANCHOR_EMAIL=
-export ANCHOR_PASSWORD=
-export URL_IN_DESCRIPTION=true
-export SAVE_AS_DRAFT=true
-export LOAD_THUMBNAIL=true
+## Instalation
 ```
-Another way is to store them in a file called `load_env.env` and the program will export them.
-```
-cat <<< ' 
-export ANCHOR_EMAIL=
-export ANCHOR_PASSWORD=
-export URL_IN_DESCRIPTION=true
-export SAVE_AS_DRAFT=true
-export LOAD_THUMBNAIL=true
-' > simple-podcast-cli/load_env.env
+pip install tube-cast
 ```
 
-## Dependencies
+## Usage
 ```bash
-npm i youtube-dl puppeteer dotenv
+Usage: tube-cast [OPTIONS] COMMAND [ARGS]...
+
+  Convert YouTube video(s) to Anchor FM
+
+Options:
+  -d, --draft-mode      Save podcast as draft
+  -t, --thumbnail_mode  Include YouTube thumbnail in podcast
+  -u, --add-url         Add the YouTube URL To podcast description
+  -x, --is-explicit     Mark podcast as explicit
+  --help                Show this message and exit.
+
+Commands:
+  youtube-channel       Takes in a YouTube Channel ID
+  youtube-id            Takes in YouTube IDS as arguments Where IDS is...
+  youtube-id-from-file  Takes in a file containing youtube id (one per line)
+  youtube-playlist      Takes in a YouTube Playlist ID
+```
+## Environment Variables
+tube-cast will promt the user for their email and password to anchor.fm
+```bash
+[user@ubuntu]$ tube-cast youtube-id
+Enter anchor.FM user email: 
+Enter anchor.FM password: 
+```
+
+Users can avoid the promt by exporting them as environment variables:
+```bash
+export ANCHOR_EMAIL=
+export ANCHOR_PASSWORD=
 ```
