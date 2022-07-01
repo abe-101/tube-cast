@@ -3,6 +3,7 @@ Streamline the conversion of your YouTube videos to Anchor FM (podcast)
 
 tube-cast is a command-line tool that is capable of converting a youtube video into a podcast
 
+[Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a full-length video demo on YouTube, or watch a quick version below:
 
 ## Instalation
 ```
