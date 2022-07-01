@@ -1,6 +1,7 @@
 import pytest
 from tube.my_scrapetube import return_channel, return_playlist
 
+
 def test_return_channel():
     with pytest.raises(SystemExit) as e:
         return_channel("123")
@@ -14,6 +15,6 @@ def test_return_playlist():
     assert e.type == SystemExit
     assert e.value.code == "Invalid playlist id"
 
-if __name__ == '__main__':
-    test_exit()
 
+if __name__ == "__main__":
+    test_exit()
