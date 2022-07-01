@@ -1,5 +1,5 @@
 scrapetube
 click
-yt_dl
+yt_dlp
 pyppeteer
 
