@@ -46,3 +46,28 @@ Users can avoid the promt by exporting them as environment variables:
 export ANCHOR_EMAIL=
 export ANCHOR_PASSWORD=
 ```
+
+## Roadmap
+* add better test case
+* add better error catching
+* include podcast publish date
+* create documentation
+* make available on pypi
+
+## Authors
+
+* [Abe](https:github.com/abe-101)
+
+## Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
+
+## Known Issues
+
+If you discover any bugs, feel free to create an issue on GitHub or create a fork and
+send a pull request.
+
