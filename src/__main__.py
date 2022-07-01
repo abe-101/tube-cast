@@ -3,8 +3,8 @@ import os
 import click
 import getpass
 
-from my_scrapetube import return_channel, return_playlist
-from youtube_to_anchorFM import convert_youtube_to_podcast
+from src.my_scrapetube import return_channel, return_playlist
+from src.youtube_to_anchorFM import convert_youtube_to_podcast
 
 
 @click.group()

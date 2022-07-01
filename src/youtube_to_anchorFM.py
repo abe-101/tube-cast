@@ -1,9 +1,9 @@
 import asyncio
 import os
 
-from validate_id import valid_id
+from src.validate_id import valid_id
 from pyppeteer import launch
-from youtube_dl import download_youtube_thumbnail, download_youtube_video
+from src.youtube_dl import download_youtube_thumbnail, download_youtube_video
 
 
 def convert_youtube_to_podcast(
