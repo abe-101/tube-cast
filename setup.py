@@ -10,7 +10,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 setup (
 	name = 'tube-cast',
 	description = 'tube-cast: A command-line program to convert YouTube videos to Podcasts',
-	version = '0.0.4',
+	version = '0.0.5',
 	install_requires = [
 	    'click',
 	    'scrapetube',
@@ -29,11 +29,10 @@ setup (
 	long_description_content_type="text/markdown",
 	license='MIT',
 	url='https://github.com/abe-101/tube-cast',
-	download_url='https://github.com/abe-101/tube-cast/tube-cast-0.0.4.tar.gz',
+	download_url='https://github.com/abe-101/tube-cast/releases/download/v0.0.5/tube-cast-0.0.5.tar.gz',
     author_email='abe@habet.dev',
     classifiers=[
-        "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 2.7",
+        "License :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ]
