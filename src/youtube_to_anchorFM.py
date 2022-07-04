@@ -13,12 +13,14 @@ def convert_youtube_to_podcast(
     thumbnail_mode=True,
     url_in_description=True,
     is_explicit=False,
+    headless_mode=True,
 ) -> dict:
     parameters = {
         "draft_mode": draft_mode,
         "thumbnail_mode": thumbnail_mode,
         "url_in_description": url_in_description,
         "is_explicit": is_explicit,
+        "headless_mode": headless_mode,
     }
 
     results = []
@@ -49,6 +51,7 @@ def _convert_youtube_to_podcast(
     thumbnail_mode=True,
     url_in_description=True,
     is_explicit=False,
+    headless_mode=True,
 ) -> bool:
     """
     Given a YouTube video ID it will create a Podcast on Anchor.fm
@@ -89,7 +92,7 @@ def _convert_youtube_to_podcast(
 
     async def Lauch():
         print("Launching pyppeteer")
-        browser = await launch(args=["--no-sandbox"], headless=False)
+        browser = await launch(args=["--no-sandbox"], headless=headless_mode)
         page = await browser.newPage()
 
         navigationPromise = asyncio.ensure_future(page.waitForNavigation())
