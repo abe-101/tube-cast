@@ -1,7 +1,5 @@
 # Tube-Cast
-Streamline the conversion of your YouTube videos to Anchor FM (podcast)
-
-tube-cast is a command-line tool that is capable of converting a YouTube video into a podcast
+A command-line tool that converts YouTube videos into Anchor FM podcasts.
 
 [Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a full-length video demo on YouTube, or watch a quick version below:
 
@@ -43,8 +41,8 @@ Enter anchor.FM password:
 
 Users can avoid the prompt by exporting them as environment variables:
 ```bash
-export ANCHOR_EMAIL=
-export ANCHOR_PASSWORD=
+export ANCHOR_EMAIL='YOUR ANCHOR FM EMAIL HERE'
+export ANCHOR_PASSWORD='YOUR ANCHOR FM PASSWORD HERE'
 ```
 
 ## Roadmap
