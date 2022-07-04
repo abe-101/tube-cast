@@ -9,7 +9,7 @@ long_description = (here / "README.md").read_text(encoding="utf-8")
 
 setup (
 	name = 'tube-cast',
-	description = 'tube-cast: A command-line program to convert YouTube videos to Podcasts',
+	description = 'A command-line tool that converts YouTube videos into Anchor FM podcasts.',
 	version = '0.0.5',
 	install_requires = [
 	    'click',
