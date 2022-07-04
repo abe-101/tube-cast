@@ -65,7 +65,7 @@ def _convert_youtube_to_podcast(
     if thumbnail_mode is True:
         thumbnail_image_file_name = download_youtube_thumbnail(youtube_id)
 
-    # Download YouTube video and retreive metadata
+    # Download YouTube video and retrieve metadata
     episode_info = download_youtube_video(youtube_id)
 
     # Append URL to description
