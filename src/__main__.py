@@ -16,8 +16,9 @@ from src.youtube_to_anchorFM import convert_youtube_to_podcast
     "-u", "--add-url", is_flag=True, help="Add the YouTube URL To podcast description"
 )
 @click.option("-x", "--is-explicit", is_flag=True, help="Mark podcast as explicit")
+@click.option("-h", "--headless-mode", is_flag=True)
 @click.pass_context
-def cli(ctx, draft_mode, thumbnail_mode, add_url, is_explicit):
+def cli(ctx, draft_mode, thumbnail_mode, add_url, is_explicit, headless_mode):
     """Convert YouTube video(s) to Anchor FM"""
     ctx.ensure_object(dict)
 
@@ -25,6 +26,7 @@ def cli(ctx, draft_mode, thumbnail_mode, add_url, is_explicit):
     ctx.obj["thumbnail_mode"] = thumbnail_mode
     ctx.obj["url_in_description"] = add_url
     ctx.obj["is_explicit"] = is_explicit
+    ctx.obj["headless_mode"] = headless_mode
 
     if not os.getenv("ANCHOR_EMAIL") or not os.getenv("ANCHOR_PASSWORD"):
         os.environ["ANCHOR_EMAIL"] = input("Enter anchor.FM user email: ")
