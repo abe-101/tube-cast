@@ -88,7 +88,7 @@ def _convert_youtube_to_podcast(
     )
 
     async def Lauch():
-        print("Launching puppeteer")
+        print("Launching pyppeteer")
         browser = await launch(args=["--no-sandbox"], headless=False)
         page = await browser.newPage()
 
