@@ -52,7 +52,7 @@ export ANCHOR_PASSWORD=
 * add better error catching
 * include podcast publish date
 * create documentation
-* make available on pypi
+~~* make available on pypi~~
 
 ## Authors
 
