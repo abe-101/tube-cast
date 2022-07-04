@@ -32,7 +32,6 @@ setup (
 	download_url='https://github.com/abe-101/tube-cast/releases/download/v0.0.5/tube-cast-0.0.5.tar.gz',
     author_email='abe@habet.dev',
     classifiers=[
-        "License :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
     ]
