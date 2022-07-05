@@ -1,4 +1,7 @@
 # Tube-Cast
+
+![Cover image](https://github.com/abe-101/tube-cast/blob/2aecc4ec4565fe0ca90ca15d7fd136f004eb1534/assets/logo.jpg "Cover image")
+
 A command-line tool that converts YouTube videos into Anchor FM podcasts.
 
 [Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a full-length video demo on YouTube, or watch a quick version below:
