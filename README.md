@@ -13,8 +13,26 @@ pip install tube-cast
 ```
 
 ## Usage
+```bash
+[user@ubuntu]$ tube-cast]$ tube-cast --help
+Usage: tube-cast [OPTIONS] COMMAND [ARGS]...
 
-![`tube-cast --help`](assets/rich-tube-cast-help.svg)
+  Convert YouTube video(s) to Anchor FM
+
+Options:
+  -d, --draft-mode      Save podcast as draft
+  -t, --thumbnail_mode  Include YouTube thumbnail in podcast
+  -u, --add-url         Add the YouTube URL To podcast description
+  -x, --is-explicit     Mark podcast as explicit
+  -h, --headless-mode
+  --help                Show this message and exit.
+
+Commands:
+  youtube-channel       Takes in a YouTube Channel ID
+  youtube-id            Takes in YouTube IDS as arguments
+  youtube-id-from-file  Takes in a file containing youtube id (one per line)
+  youtube-playlist      Takes in a YouTube Playlist ID
+```
 
 ## Environment Variables
 
