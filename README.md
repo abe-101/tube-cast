@@ -8,6 +8,9 @@ https://user-images.githubusercontent.com/82916197/176830848-dc5e7068-13ff-4d13-
 
 
 ## Installation
+
+![`tube-cast --help`](assets/rich-tube-cast-help.svg)
+
 ```
 pip install tube-cast
 ```
