@@ -17,6 +17,7 @@ pip install tube-cast
 ![`tube-cast --help`](assets/rich-tube-cast-help.svg)
 
 ## Environment Variables
+
 tube-cast will prompt the user for their email and password to anchor.fm
 ```bash
 [user@ubuntu]$ tube-cast youtube-id
@@ -24,13 +25,14 @@ Enter anchor.FM user email:
 Enter anchor.FM password: 
 ```
 
-Users can avoid the prompt by exporting them as environment variables:
+The prompt can be avoided by exporting them as environment variables:
 ```bash
 export ANCHOR_EMAIL='YOUR ANCHOR FM EMAIL HERE'
 export ANCHOR_PASSWORD='YOUR ANCHOR FM PASSWORD HERE'
 ```
 
 ## Roadmap
+
 * add better test case
 * add better error catching
 * include podcast publish date
@@ -41,6 +43,7 @@ export ANCHOR_PASSWORD='YOUR ANCHOR FM PASSWORD HERE'
 
 * [Abe](https:github.com/abe-101)
 
+## Demo
 [Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a video demo on YouTube, or watch below:
 
 
