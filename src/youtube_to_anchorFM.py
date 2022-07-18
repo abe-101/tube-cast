@@ -141,7 +141,7 @@ def _convert_youtube_to_podcast(
         contentTypeLabel = await page.J(selectorForExplicitContentLabel)
         await contentTypeLabel.click()
 
-        if thumbnail_mode:
+        if thumbnail_mode is True:
             print("-- Uploading episode art")
             await page.waitForSelector('input[type=file][accept="image/*"]')
             inputEpisodeArt = await page.J('input[type=file][accept="image/*"]')
@@ -172,7 +172,7 @@ def _convert_youtube_to_podcast(
     asyncio.run(Lauch())
 
     # Remove downloaded Thumbnail image file
-    if url_in_description is True:
+    if thumbnail_mode is True:
         if os.path.isfile(thumbnail_image_file_name):
             os.remove(thumbnail_image_file_name)
 
