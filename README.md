@@ -55,6 +55,7 @@ export ANCHOR_PASSWORD='YOUR ANCHOR FM PASSWORD HERE'
 * add better error catching
 * include podcast publish date
 * create documentation  
+* Test tool in microsoft powershell
 * ~~make available on pypi~~
 
 ## Authors
