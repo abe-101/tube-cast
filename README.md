@@ -75,9 +75,10 @@ with Command Prompt simply copy the "tube-cast-main" folder path > open CMD type
 
 
 
-## Authors
+## Contributors
 
 * [Abe](https:github.com/abe-101)
+* [Vraelot](https://github.com/Vraelot)
 
 ## Demo
 [Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a video demo on YouTube, or watch below:
