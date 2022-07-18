@@ -55,12 +55,30 @@ export ANCHOR_PASSWORD='YOUR ANCHOR FM PASSWORD HERE'
 * add better error catching
 * include podcast publish date
 * create documentation  
-* Test tool in microsoft powershell
+* ~~Test tool in microsoft powershell~~
 * ~~make available on pypi~~
 
-## Authors
+## Running it with Windows 
+**Method 1: pip install**  
+Assuming you have python and pip installed already, open Command Prompt or Windows Powershell  
+Run this command: `pip install tube-cast`
+Once the install is done you can simply run `pip list` to double check the package was installed
+run the command: `cls` to clear the command prompt/powershell  
+You should now be able to run tube-cast commands. To start run this command: `tube-cast --help`
+
+**Method 2: github download**  
+Simply download and extract the github.  
+With the folder open you can right click any white-space in the "tube-cast-main" folder and open in terminal, run this command `pip install .`   
+with Command Prompt simply copy the "tube-cast-main" folder path > open CMD type in *cd* PastePath, you can now run this command `pip install .` 
+
+**Note:** Method 2 is good if you need to edit the program yourself. You'll simply edit the python files you need changed, follow the steps and instead of running `pip install .` Youll be doing `pip install . --upgrade` Doing so will update the package with your desired changes.
+
+
+
+## Contributors
 
 * [Abe](https:github.com/abe-101)
+* [Vraelot](https://github.com/Vraelot)
 
 ## Demo
 [Click here](https://youtu.be/HBk-0wRGqHY "Tube-Cast Video Demo - YouTube") to view a video demo on YouTube, or watch below:
