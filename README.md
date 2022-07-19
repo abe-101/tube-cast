@@ -6,8 +6,8 @@ A command-line tool that converts YouTube videos into Anchor FM podcasts.
 
 
 ## Installation
-
-
+Check out this blog post for a step-by-step guide on installing python on windows-11  
+[How To Install Python 3 on Windows 11](https://habet.dev//blog/how-to-install-python-3-on-windows-11/)
 ```
 pip install tube-cast
 ```
