@@ -114,6 +114,10 @@ def _convert_youtube_to_podcast(
         inputFile = await page.J("input[type=file]")
         await inputFile.uploadFile(episode_info["file_name"])
 
+        await page.waitForXPath('//button[text()="Audio episode"]')
+        [audioEpisodeButton] = await page.Jx('//button[text()="Audio episode"]')
+        await audioEpisodeButton.click()
+
         print("Waiting for upload to finish")
         await page.waitFor(25 * 1000)
 
