@@ -97,6 +97,35 @@ https://user-images.githubusercontent.com/82916197/176830848-dc5e7068-13ff-4d13-
 4. Push to the branch `git push origin my-new-feature`
 5. Create new Pull Request
 
+## Testing
+
+To test your changes generate a distribution package
+To do so make sure you have the latest version of PyPA’s build installed:
+```
+python3 -m pip install --upgrade build
+```
+Now run this command from the projects root directory:
+```
+python3 -m build
+```
+This command should output a lot of text and once completed should generate two files in the dist directory:
+```
+dist/
+  example_package_YOUR_USERNAME_HERE-0.0.1-py3-none-any.whl
+  example_package_YOUR_USERNAME_HERE-0.0.1.tar.gz
+```
+
+Hop into a Virtual Environment:
+```
+python3 -m venv <DIR>
+source <DIR>/bin/activate
+```
+Install the newly created package
+```
+pip install dist/tube-cast-<VERSION>.tar.gz
+```
+
+
 ## Known Issues
 
 If you discover any bugs, feel free to create an issue on GitHub or create a fork and
