@@ -21,8 +21,6 @@ def download_youtube_thumbnail(youtube_id: str) -> bool:
         elif hasattr(e, "message"):
             if "Command returned error code 23" in e.message:
                 pass
-            else:
-                raise (e)
         else:
             raise (e)
     return False
@@ -52,8 +50,6 @@ def download_youtube_video(youtube_id: str) -> dict:
         elif hasattr(e, "message"):
             if "Command returned error code 23" in e.message:
                 pass
-            else:
-                raise (e)
         else:
             raise (e)
     return False
