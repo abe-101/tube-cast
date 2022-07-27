@@ -15,7 +15,7 @@ def download_youtube_thumbnail(youtube_id: str) -> bool:
         with YoutubeDL(ydl_opts) as ydl:
             print("Downloading youtube URL: " + URL + " thumbnail...")
             ydl.download(URL)
-            print("success!")
+            print("Download successful!")
             return "episode.webp"
     except Exception as e:
         print("Thumbnail download failed!")
@@ -44,7 +44,7 @@ def download_youtube_video(youtube_id: str) -> dict:
         with YoutubeDL(ydl_opts) as ydl:
             print("Downloading youtube URL: " + URL + "audio...")
             ydl.download(URL)
-            print("success")
+            print("Download successful")
             info = ydl.extract_info(URL)
         return {
             "title": info["title"],
