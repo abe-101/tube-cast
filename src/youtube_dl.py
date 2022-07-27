@@ -13,12 +13,12 @@ def download_youtube_thumbnail(youtube_id: str) -> bool:
     }
     try:
         with YoutubeDL(ydl_opts) as ydl:
-            print("trying youtube URL: " + URL + " thumb-nail...")
+            print("Downloading youtube URL: " + URL + " thumbnail...")
             ydl.download(URL)
             print("success!")
             return "episode.webp"
     except Exception as e:
-        print("failure!")
+        print("Thumbnail download failed!")
         if isinstance(e, DownloadError):
             pass
         elif hasattr(e, "message"):
@@ -42,7 +42,7 @@ def download_youtube_video(youtube_id: str) -> dict:
     }
     try:
         with YoutubeDL(ydl_opts) as ydl:
-            print("trying youtube URL: " + URL + "...")
+            print("Downloading youtube URL: " + URL + "audio...")
             ydl.download(URL)
             print("success")
             info = ydl.extract_info(URL)
@@ -52,7 +52,7 @@ def download_youtube_video(youtube_id: str) -> dict:
             "file_name": "episode.webm",
         }
     except Exception as e:
-        print("failure!")
+        print("Audio download failed!")
         if isinstance(e, DownloadError):
             pass
         elif hasattr(e, "message"):
