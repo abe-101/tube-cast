@@ -12,6 +12,7 @@ def download_youtube_thumbnail(youtube_id: str) -> bool:
         "writethumbnail": True,
     }
     try:
+        print("trying youtube URL: " + URL + " thumb-nail...")
         with YoutubeDL(ydl_opts) as ydl:
             ydl.download(URL)
             return "episode.webp"
@@ -39,6 +40,7 @@ def download_youtube_video(youtube_id: str) -> dict:
     }
     try:
         with YoutubeDL(ydl_opts) as ydl:
+            print("trying youtube URL: " + URL + "...")
             ydl.download(URL)
             info = ydl.extract_info(URL)
         return {
