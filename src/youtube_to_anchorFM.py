@@ -1,8 +1,9 @@
 import asyncio
 import os
 
-from src.validate_id import valid_id
 from pyppeteer import launch
+
+from src.validate_id import valid_id
 from src.youtube_dl import download_youtube_thumbnail, download_youtube_video
 
 
