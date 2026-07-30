@@ -34,15 +34,14 @@ def convert_youtube_to_podcast(
     for id in youtube_ids:
         if not valid_id(id):
             print(f"Video ID: {id} is not valid -- Skipping")
-            results.append((id, "skipped"))
+            results.append((id, "skipped", ""))
             continue
-        if _convert_youtube_to_podcast(id, **parameters):
-            results.append((id, "a success"))
-        else:
-            results.append((id, "a failure"))
+        success, title = _convert_youtube_to_podcast(id, **parameters)
+        status = "success" if success else "failure"
+        results.append((id, status, title))
     print("\n\n================ Results ================\n")
     for result in results:
-        print(f"Video ID: {result[0]:11} was {result[1]}")
+        print(f"Video ID: {result[0]:11} | Title: {result[2]} | Status: {result[1]}")
 
 
 def _convert_youtube_to_podcast(
@@ -53,7 +52,7 @@ def _convert_youtube_to_podcast(
     url_in_description=True,
     is_explicit=False,
     headless_mode=True,
-) -> bool:
+) -> tuple:
     """
     Given a YouTube video ID it will create a Podcast on Anchor.fm
     """
@@ -69,6 +68,10 @@ def _convert_youtube_to_podcast(
     # Download YouTube video and retrieve metadata
     episode_info = download_youtube_video(youtube_id)
 
+    if not episode_info:
+        return False, "Unknown"
+
+    title = episode_info.get("title", "Unknown")
     # Append URL to description
     if url_in_description is True:
         episode_info["description"] = (
@@ -184,4 +187,4 @@ def _convert_youtube_to_podcast(
     # Remove downloaded downloaded audio file
     if os.path.isfile(episode_info["file_name"]):
         os.remove(episode_info["file_name"])
-    return True
+    return True, title
